@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../model/tarefa.php';
 
 class tarefaController{
-    private $tarefaModel; 
+    private Tarefa $tarefaModel; 
 
     public function __construct(){
         $this->tarefaModel = new Tarefa(); 

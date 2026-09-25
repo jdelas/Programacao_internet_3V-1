@@ -6,7 +6,7 @@ class Database {
     private $senha = ''; 
     private $banco = 'todo_list'; 
 
-    public $conn = ''; 
+    public ?mysqli $conn = null; 
 
     public function conectar(){
         $this->conn = new mysqli($this->host, $this->username, $this->senha, $this->banco ); 
