@@ -34,9 +34,6 @@ class tarefaController{
         }
         header("Location: index.php");
     }
-
-    
 }
-
 
 ?>

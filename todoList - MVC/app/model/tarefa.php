@@ -10,8 +10,6 @@ class Tarefa{
         $this->conn = $db->conectar();
     }
 
-    # Listar
-
     public function listar(): array {
         $tarefas = []; 
         $sql = "SELECT * FROM tarefas ORDER BY data_criacao DESC"; 
@@ -26,23 +24,18 @@ class Tarefa{
         return $tarefas; 
     }
 
-    # Criar
-
     public function criar(string $descricao): bool {
         $descricao = $this->conn->real_escape_string($descricao);
         $sql = "INSERT INTO tarefas (descricao) VALUES ('$descricao')";
         return $this->conn->query($sql); 
     }
 
-    # Excluir 
-
     public function excluir(int $id): bool {
         $id = intval($id);
         $sql = "DELETE FROM tarefas WHERE id = $id"; 
         return $this->conn->query($sql); 
     }
-
-    # Editar
+    
     public function editar(string $descricao, int $id): bool {
         $descricao = $this->conn->real_escape_string($descricao);
         $id = intval($id);
