@@ -14,6 +14,8 @@ class tarefaController{
         include __DIR__ . '/../view/listar.php'; 
     }
 
+    #Adicionar
+
     public function criar(){
         if(isset($_POST['descricao']) && !empty(trim($_POST['descricao']))){
             $this->tarefaModel->criar($_POST['descricao']);
@@ -21,12 +23,16 @@ class tarefaController{
         header("Location: index.php");
     }
 
+    #Excluir
+
     public function excluir(){
         if(isset($_GET['id'])){
             $this->tarefaModel->excluir($_GET['id']);
         }
         header("Location: index.php"); 
     }
+
+    #Editar
 
     public function editar(){
         if(isset($_POST['id']) && isset($_POST['descricao']) && !empty(trim($_POST['descricao']))){
